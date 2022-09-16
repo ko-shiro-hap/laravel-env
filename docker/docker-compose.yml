@@ -3,17 +3,17 @@ version: "3.9"
 services:
   app:
     build:
-      context: ./app
+      context: .
       dockerfile: ./app/Dockerfile
     volumes:
       - ../src/:/app
 
   web:
     build:
-      context: ./web
+      context: .
       dockerfile: ./web/Dockerfile
     ports:
-      - 8081:80
+      - 80:80
     depends_on:
       - app
     volumes:
@@ -21,7 +21,7 @@ services:
 
   db:
     build:
-      context: ./db
+      context: .
       dockerfile: ./db/Dockerfile
     ports:
       - 3306:3306
